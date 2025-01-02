@@ -23,6 +23,8 @@ class Database
 
 $conn = Database::getConnection();
 if ($conn) {
+
     echo "la connextion est succés";
     print_r($conn);
-} 
+    
+}  
