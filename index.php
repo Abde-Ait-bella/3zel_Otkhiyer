@@ -6,9 +6,9 @@
         <!-- Header-->
         <header class="bg-dark py-5 background-home">
             <div class="my-5 px-4 px-lg-5 container ">
-                <div class="text-center text-white">
-                    <h1 class="fw-bolder display-4">3ZEL OTKHIYER</h1>
-                    <p class="mb-0 fw-normal text-white-50 lead">Li machra itnzzeh</p>
+                <div class="text-right text-white">
+                    <h1 class="fw-bolder display-4">Bien venu </h1>
+                    <p class="mb-0 fw-normal text-white-50 lead">Li Machra Itnzzeh</p>
                 </div>
             </div>
         </header>
