@@ -1,9 +1,7 @@
 <?php
 
-namespace Src\Routes;
-
-use Src\Controllers\ProductController;
-use Src\Controllers\UserController;
+require_once "../controllers/ProductController.php";
+require_once "../controllers/UserController.php";
 
 class Routes
 {

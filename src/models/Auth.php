@@ -1,8 +1,6 @@
 <?php
 
-namespace Src\Models;
 
-use Src\Config\Database;
 
 class Auth
 {

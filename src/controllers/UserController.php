@@ -1,8 +1,6 @@
 <?php
 
-namespace Src\Controllers;
-
-use Src\Models\Auth;
+require_once "../models/Product.php";
 
 class UserController
 {

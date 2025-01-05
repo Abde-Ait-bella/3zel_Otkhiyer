@@ -1,9 +1,6 @@
 <?php
 
-namespace Src\Models;
-
-
-use Src\Config\Database;
+require_once "../config/Database.php";
 
 class Product
 {
