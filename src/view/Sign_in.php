@@ -1,12 +1,11 @@
-<?php include_once "../view/parties/_header.php" ?>
-<?php include_once "../view/parties/_navbar.php" ?>
+<?php include_once __DIR__."/../view/parties/_header.php" ?>
 	<body>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="justify-content-center row">
 				<div class="col-lg-5 col-md-7">
 					<div class="wrap">
-						<div class="img" style="background-image: url(../assets/images/bg-1.jpg);"></div>
+						<div class="img" ></div>
 						<div class="p-4 p-md-5 login-wrap">
 			      	<div class="d-flex">
 			      		<div class="w-100">
@@ -21,11 +20,11 @@
 			      	</div>
 							<form action="#" class="signin-form">
 			      		<div class="mt-3 form-group">
-			      			<input type="text" class="form-control" required>
+			      			<input type="text" class="form-control" name="username" required>
 			      			<label class="form-control-placeholder" for="username">Username</label>
 			      		</div>
 		            <div class="form-group">
-		              <input id="password-field" type="password" class="form-control" required>
+		              <input id="password-field" type="password" name="password" class="form-control" required>
 		              <label class="form-control-placeholder" for="password">Password</label>
 		              <span toggle="#password-field" class="fa fa-eye fa-fw field-icon toggle-password"></span>
 		            </div>
@@ -52,7 +51,7 @@
 		</div>
 	</section>
 
-<?php include_once "../view/parties/_footer.php" ?>
+<?php include_once __DIR__."/../view/parties/_footer.php" ?>
 
 	</body>
 </html>

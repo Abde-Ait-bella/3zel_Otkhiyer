@@ -53,3 +53,9 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.img{
+    background-image: url("../images/logo1.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}

@@ -52,7 +52,7 @@
     </div>
     <div>
       <a onclick="toglePanier()"
-        href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/view/Sign_in.php" ?>"
+        href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
         class="text-white btn btn-warning">Se connecter</a>
     </div>
 
