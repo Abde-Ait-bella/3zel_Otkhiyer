@@ -9,6 +9,8 @@ class Routes
         "POST" => [
             "/signup" => [UserController::class, "register"],
             "/signin" => [UserController::class, "login"],
+            "/addProduct" => [ProductController::class, "Create"],
+            "/updateProduct" => [ProductController::class, "Update"],
         ],
         "GET" => [
             "/" => [ProductController::class, "index"],
@@ -18,9 +20,9 @@ class Routes
             "/admin" => [UserController::class, "index"],
             "/active" => [UserController::class, "customer_active"],
             "/disabled" => [UserController::class, "customer_disabled"],
-            "/delete" => [UserController::class, "customer_delete"],
+            "/delete" => [ProductController::class, "Destroy"],
             "/products" => [ProductController::class, "productAdmin"],
-            "/addProduct" => [ProductController::class, "Create"],
+            "/addToCart" => [ProductController::class, "Add_to_cart"],
         ]
     ];
     

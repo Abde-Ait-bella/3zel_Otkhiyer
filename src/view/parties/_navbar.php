@@ -27,11 +27,9 @@
       <button onclick="togglePanier()" class="btn btn-outline-dark">
         <i class="bi-cart-fill me-1"></i>
         Cart
-        <span class="bg-dark rounded-pill text-white badge ms-1">0</span>
+        <span class="bg-dark rounded-pill text-white badge ms-1"><?= count($_SESSION['all_id']) ?></span>
       </button>
-      <div class="containerPanier d-none"></div>
     </div>
-
 
     <?php if (isset($_SESSION['user_id']) && $_SESSION['user_role'] == "client") { ?>
       <ul class="ms-3 me-lg-4 navbar-nav">
@@ -51,7 +49,7 @@
       </ul>
       <?php } else { ?>
         <div>
-          <a onclick="toglePanier()" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
+          <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
             class="text-white btn btn-warning">Se connecter</a>
         </div>
       <?php } ?>

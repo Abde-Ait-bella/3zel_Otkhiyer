@@ -20,18 +20,19 @@
             </div>
         </form>
         <!-- Navbar-->
-        <ul class=" me-lg-4 navbar-nav">
-            <li class="dropdown nav-item">
-                <div class="profiletoggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                </div>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="/shop_product/logout">Logout</a></li>
-                </ul>
+        <ul class="ms-3 me-lg-4 navbar-nav">
+        <li class="dropdown nav-item">
+          <div class="profiletoggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li>
+              <hr class="dropdown-divider" />
             </li>
-        </ul>
+            <li><a class="dropdown-item" href="/shop_product/logout">Logout</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </li>
+      </ul>
     </nav>

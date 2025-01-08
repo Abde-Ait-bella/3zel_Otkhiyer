@@ -23,7 +23,7 @@ class User
    
     public function getAll(){
         $conn = Database::getConnection();
-        $sql = "SELECT * FROM users WHERE is_deteted = 0";
+        $sql = "SELECT * FROM users";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -42,16 +42,6 @@ class User
     public function activeUser($id){
         $conn = Database::getConnection();
         $sql = "UPDATE users SET status = 1  WHERE user_id = :id";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([
-            ":id" => $id
-        ]);
-        header("Location: /shop_product/admin");
-    }
-
-    public function deleteUser($id){
-        $conn = Database::getConnection();
-        $sql = "UPDATE users SET is_deteted = 1  WHERE user_id = :id";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ":id" => $id

@@ -2,13 +2,14 @@
 
 <body>
     <?php include_once __DIR__ . "/../parties/_navbarAdmin.php" ?>
-    <div class="addProduct_popup p-5 bg-secondary" id="addProduct_popup">
-        <form method="POST" action="/addProduct">
+    <div class="addProduct_popup p-5 bg-secondary d-none" id="addProduct_popup">
+        <div class="position-absolute bg-danger btn btn-danger rounded" style="top: -7px; right:-6px ; width: 2rem; height: 2rem; padding: 3px; padding-right: 1px;" onclick="togglePopup()"><i class="fa-solid fa-minus"></i></div>
+        <form method="POST" action="/shop_product/addProduct" enctype="multipart/form-data" name="productForm">
             <!-- Ligne avec deux champs : Nom et Quantité -->
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="nom" class="form-label text-white fw-bold">Nom</label>
-                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrez le nom">
+                    <input type="text" class="form-control" name="nom" id="name" placeholder="Entrez le nom">
                 </div>
 
                 <div class="col-md-6">
@@ -30,11 +31,12 @@
                 </div>
                 <div class="col-md-6">
                     <label for="formFileMultiple" class="form-label text-white fw-bold">Photo</label>
-                    <input class="form-control" name="photo" type="file" id="formFileMultiple" multiple>
+                    <input class="form-control" name="product_image" type="file" id="formFileMultiple" multiple>
                 </div>
             </div>
             <!-- Bouton Envoyer -->
-            <button type="submit" class="btn btn-danger mt-3">Ajouter</button>
+            <button type="submit" id="btn_submit" class="btn btn-danger mt-3 px-4">Ajouter</button>
+            <button type="button" onclick="cancel_popup()" class="btn btn-light text-muted mt-3 px-4">Annuler</button>
         </form>
     </div>
     <div id="layoutSidenav">
@@ -62,11 +64,10 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img src="https://www.hp.com/fr-fr/shop/Html/Merch/Images/7K728EA-ABF_1750x1285.jpg"
-                                                alt="" style="width: 45px; height: 45px" class="" />
+                                            <img src=<?= $value['product_image'] ?>
+                                                alt="" style="width: 45px; height: 45px" class="object-fit-cover" />
                                             <div class="ms-3">
                                                 <p class="fw-bold mb-1"><?= $value['product_name'] ?></p>
-                                                <p class="fw-normal mb-1 text-muted">
                                                     <?php
                                                     $now = new DateTime();
                                                     $givenDate = new DateTime($value['created_at']);
@@ -85,7 +86,7 @@
                                                         echo 'just now';
                                                     }
                                                     ?>
-                                                </p>
+                                                </p> 
                                             </div>
                                         </div>
                                     </td>
@@ -95,15 +96,15 @@
                                     </td>
 
                                     <td style="padding: 21px 0">
-                                        <p class="text-muted mb-0"><?= $value['price'] ?> DH</p>
+                                        <p class="text-muted mb-0"><?= $value['product_price'] ?> DH</p>
 
                                     </td>
 
-                                    <td>
-                                        <a type="button" class="btn btn-lg btn-rounded">
+                                    <td style="padding: 21px 0">
+                                        <a onclick='editeProduct(<?= json_encode($value) ?>)'  class="fs-4 mx-2" style="cursor: pointer" >
                                             <i class="fa-solid fa-gear text-muted"></i>
                                         </a>
-                                        <a type="button" href=<?php echo "/shop_product/delete?id=" . $value['product_id'] ?> class="btn btn-lg btn-rounded">
+                                        <a  href=<?php echo "/shop_product/delete?id=" . $value['product_id'] ?> class="fs-4 mx-2  no-outline">
                                             <i class="fa-solid fa-trash-arrow-up text-muted"></i>
                                         </a>
                                     </td>
@@ -115,15 +116,12 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end position-fixed" style="top: 4.5rem; right:1rem ; z-index: 99">
-                <button class="btn btn-rounded bg-secondary" onclick="openPopup()"><i
+                <button class="btn btn-rounded bg-secondary" onclick="togglePopup()"><i
                         class="fa-solid fa-plus text-white"></i></button>
             </div>
             <?php include_once __DIR__ . "/../parties/_footerAdmine.php" ?>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-    <script src="../..js/scripts.js"></script>
 </body>
 
 </html>

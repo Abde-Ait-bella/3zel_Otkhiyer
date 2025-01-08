@@ -127,11 +127,4 @@ class UserController
         }
     }
 
-    public function customer_delete(){
-        if ($_GET['id']) {
-            $id = $_GET['id'];
-            $user = new User();
-            $user->deleteUser($id);
-        }
-    }
 }

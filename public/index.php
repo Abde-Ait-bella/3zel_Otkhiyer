@@ -5,9 +5,9 @@ require_once __DIR__ . "/../src/routes/routes.php";
 
 session_start();
 
-if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") { 
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
     header("Location: /shop_product/admin");
-} 
+}
 
 ?>
 <!-- navbar -->
@@ -20,7 +20,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
         <div class="text-right text-white">
             <h1 class="fw-bolder display-4">
                 <?php
-                if (isset($_SESSION['user_name']) && $_SESSION['user_name'] == "client") { ?>
+                if (isset($_SESSION['user_name']) && $_SESSION['user_role'] == 'client') { ?>
                     <?=
                         $_SESSION['user_name'] . " مرحبا بك" ?>
                 <?php } else {
@@ -32,6 +32,47 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
         </div>
     </div>
 </header>
+
+<div class="containerPanier d-none">
+    <?php
+    $ids = $_SESSION['all_id'];
+    $filteredProducts = array_filter($products, function ($product) use ($ids) {
+        return in_array($product['product_id'], $ids);
+    });
+    ?>
+    <div class="row">
+    <?php foreach ($filteredProducts as $key => $value) { ?>
+            <div class="mb-5 col-md-4">
+                <div class="h-100 card">
+                    <!-- Product image-->
+                    <img class="card-img-top object-fit-contain" src=<?= $value['product_image'] ?> alt="..."
+                        style="height: 9.5rem;" />
+                    <!-- Product details-->
+                    <div class="p-4 card-body">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder"><?= $value["product_name"] ?></h5>
+                            <!-- Product price-->
+                            <span class="text-muted text-decoration-line-through">20.00 DH</span>
+
+                            <?php echo $value["product_price"] ?> DH
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="bg-transparent p-4 pt-0 border-top-0 card-footer">
+                        <div class="text-center">
+                            <a class="mt-auto btn btn-outline-dark" href=<?php echo "/shop_product/addToCart?id=" . $value['product_id'] ?>
+                                onclick="handelPanier(<?= $value['product_id'] ?>)" href="#"><i class="fa-solid fa-plus"></i></a>
+                                <a class="mt-auto btn btn-outline-dark" href=<?php echo "/shop_product/addToCart?id=" . $value['product_id'] ?>
+                                onclick="handelPanier(<?= $value['product_id'] ?>)" href="#"><i class="fa-solid fa-minus"></i></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+</div>
+
 <!-- Section-->
 <section class="py-5">
     <div class="mt-5 px-4 px-lg-5 container">
@@ -43,7 +84,8 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
                 <div class="mb-5 col">
                     <div class="h-100 card">
                         <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top object-fit-contain" src=<?= $value['product_image'] ?> alt="..."
+                            style="height: 9.5rem;" />
                         <!-- Product details-->
                         <div class="p-4 card-body">
                             <div class="text-center">
@@ -52,12 +94,12 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">20.00 DH</span>
 
-                                <?php echo $value["price"] ?> DH
+                                <?php echo $value["product_price"] ?> DH
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="bg-transparent p-4 pt-0 border-top-0 card-footer">
-                            <div class="text-center"><a class="mt-auto btn btn-outline-dark"
+                            <div class="text-center"><a class="mt-auto btn btn-outline-dark" href=<?php echo "/shop_product/addToCart?id=" . $value['product_id'] ?>
                                     onclick="handelPanier(<?= $value['product_id'] ?>)" href="#">Add to cart</a></div>
                         </div>
                     </div>
@@ -115,7 +157,7 @@ if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") {
                     </div>
                     <!-- Product actions-->
                     <div class="bg-transparent p-4 pt-0 border-top-0 card-footer">
-                        <div class="text-center"><a class="mt-auto btn btn-outline-dark" href="#">Add to cart</a></div>
+                        <div class="text-center"><a class="mt-auto btn btn-outline-dark">Add to cart</a></div>
                     </div>
                 </div>
             </div>

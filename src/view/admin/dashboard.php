@@ -203,12 +203,12 @@ if (!isset($_SESSION['user_role']) && $_SESSION['user_role'] !== 1) {
                                                 <?php if ($value['status'] == 1) { ?>
                                                     <a href=<?= "/shop_product/disabled?id=" . $value['user_id'] ?>
                                                         class="badge text-decoration-none text-white d-inline">
-                                                        <i class="fa-solid fa-user-large text-success fs-4"></i>
+                                                        <i class="fa-solid fa-user-large text-secondary fs-4 ms-1"></i>
                                                     </a>
                                                 <?php } else { ?>
                                                     <a href=<?= "/shop_product/active?id=" . $value['user_id'] ?>
                                                         class="badge text-decoration-none text-white d-inline">
-                                                        <i class="fa-solid fa-user-large-slash fs-4 text-danger"></i>
+                                                        <i class="fa-solid fa-user-large-slash fs-4 text-secondary"></i>
                                                     </a>
                                                 <?php } ?>
                                             </td>
