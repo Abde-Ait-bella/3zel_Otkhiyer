@@ -1,10 +1,5 @@
 {
-    "name": "youcode/shop_product",
-    "authors": [
-        {
-            "name": "Abdessamad Ait-bella",
-            "email": "abdessamadaitbella1998@gmail.com"
-        }
-    ],
-    "require": {}
+    "require": {
+        "lcobucci/jwt": "^4.0"
+    }
 }

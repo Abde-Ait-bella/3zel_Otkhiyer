@@ -59,3 +59,18 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
 }
+
+.addProduct_popup{
+    position: absolute;
+    width: 40%;
+    /* height: 70%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(251, 251, 251);
+    z-index: 99;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 2px 5px rgb(92, 92, 92);
+}

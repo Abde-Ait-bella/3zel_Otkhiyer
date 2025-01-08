@@ -2,16 +2,32 @@
 
 include __DIR__ . "/../src/view/parties/_header.php";
 require_once __DIR__ . "/../src/routes/routes.php";
-// print_r($products);
+
+session_start();
+
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin") { 
+    header("Location: /shop_product/admin");
+} 
 
 ?>
 <!-- navbar -->
+
+
 <?php include_once __DIR__ . "/../src/view/parties/_navbar.php" ?>
 <!-- Header-->
 <header class="bg-dark py-5 background-home">
     <div class="my-5 px-4 px-lg-5 container ">
         <div class="text-right text-white">
-            <h1 class="fw-bolder display-4"> مرحبا بكم</h1>
+            <h1 class="fw-bolder display-4">
+                <?php
+                if (isset($_SESSION['user_name']) && $_SESSION['user_name'] == "client") { ?>
+                    <?=
+                        $_SESSION['user_name'] . " مرحبا بك" ?>
+                <?php } else {
+                    echo "مرحبا بكم";
+                }
+                ?>
+            </h1>
             <p class="mb-0 fw-normal text-white-50 lead">لي ماشرا اتنززه</p>
         </div>
     </div>
@@ -34,19 +50,20 @@ require_once __DIR__ . "/../src/routes/routes.php";
                                 <!-- Product name-->
                                 <h5 class="fw-bolder"><?= $value["product_name"] ?></h5>
                                 <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">20.00 DH</span>
+                                <span class="text-muted text-decoration-line-through">20.00 DH</span>
 
-                                <?php echo $value["price"] ?>  DH
+                                <?php echo $value["price"] ?> DH
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="bg-transparent p-4 pt-0 border-top-0 card-footer">
-                            <div class="text-center"><a class="mt-auto btn btn-outline-dark" onclick="handelPanier(<?= $value['product_id'] ?>)"                              href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="mt-auto btn btn-outline-dark"
+                                    onclick="handelPanier(<?= $value['product_id'] ?>)" href="#">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
-           
+
 
             <div class="mb-5 col">
                 <div class="h-100 card">

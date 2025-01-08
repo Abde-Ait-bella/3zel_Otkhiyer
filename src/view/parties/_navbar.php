@@ -1,6 +1,6 @@
 <nav class="bg-light px-3 navbar navbar-expand-lg navbar-light">
   <a class="mt-2 mt-lg-0 navbar-brand navbar-collapse"
-    href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/index.php" ?>">
+    href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/" ?>">
     <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/assets/images/logo.png" ?>" height="15"
       alt="MDB Logo" loading="lazy" />
   </a>
@@ -12,33 +12,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="mr-auto navbar-nav">
       <li class="mx-5 active nav-item">
-        <a class="nav-link" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/index.php" ?>">Home
+        <a class="nav-link" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/shop_product/' ?>">Home
           <span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="dropdown nav-item">
-        <a class="dropdown-toggle nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="disabled nav-link" href="#">Disabled</a>
-      </li> -->
+      
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <!-- <button class="my-2 my-sm-0 btn btn-outline-success" type="submit">Search</button> -->
       </form>
-
-
 
     </ul>
 
@@ -50,25 +31,29 @@
       </button>
       <div class="containerPanier d-none"></div>
     </div>
-    <div>
-      <a onclick="toglePanier()"
-        href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
-        class="text-white btn btn-warning">Se connecter</a>
-    </div>
 
-    <ul class="ms-3 me-lg-4 navbar-nav">
-      <li class="dropdown nav-item">
-      <div class="profiletoggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      </div>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="#!">Settings</a></li>
-          <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
-          <li><a class="dropdown-item" href="#!">Logout</a></li>
-        </ul>
-      </li>
-    </ul>
+
+    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_role'] == "client") { ?>
+      <ul class="ms-3 me-lg-4 navbar-nav">
+        <li class="dropdown nav-item">
+          <div class="profiletoggle" href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          </div>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="/shop_product/logout">Logout</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <?php } else { ?>
+        <div>
+          <a onclick="toglePanier()" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
+            class="text-white btn btn-warning">Se connecter</a>
+        </div>
+      <?php } ?>
   </div>
 </nav>
