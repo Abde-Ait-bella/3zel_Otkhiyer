@@ -10916,12 +10916,12 @@ body {
   }
 }
 .sb-nav-fixed .sb-topnav {
-  z-index: 1039;
+  z-index: 99;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
   width: 225px;
   height: 100vh;
-  z-index: 1038;
+  z-index: 98;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
   padding-top: 56px;
@@ -10959,7 +10959,7 @@ body {
 .sb-topnav {
   padding-left: 0;
   height: 56px;
-  z-index: 1039;
+  z-index: 99;
 }
 .sb-topnav .navbar-brand {
   width: 225px;

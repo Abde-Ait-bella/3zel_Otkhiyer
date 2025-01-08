@@ -1,7 +1,41 @@
 <?php include_once __DIR__ . "/../view/parties/_header.php";
+
+session_start();
+
+if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == "client") { 
+  header("Location: /shop_product/");
+  }elseif(isset($_SESSION['user_role']) && $_SESSION['user_role'] == "admin"){
+  header("Location: /shop_product/admin");
+  }
 ?>
 
 <body>
+
+  <?php
+  if (isset($_SESSION['errors']['email'])) { ?>
+    <h1 class="text-center"><?= $_SESSION['errors']['email'] ?></h1>
+  <?php }
+  unset($_SESSION['errors']['email']);
+  ?>
+
+<nav class="bg-light px-3 navbar flex justify-content-between navbar-expand-lg navbar-light">
+  <a class="mt-2 mt-lg-0 navbar-brand navbar-collapse"
+    href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/" ?>">
+    <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/assets/images/logo.png" ?>" height="15"
+      alt="MDB Logo" loading="lazy" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="" id="navbarSupportedContent">
+        <div>
+          <a onclick="toglePanier()" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shop_product/signin" ?>"
+            class="text-white btn btn-success">Se connecter</a>
+        </div>
+  </div>
+</nav>
   <section class="ftco-section">
     <div class="container">
       <div class="justify-content-center row">
@@ -54,7 +88,7 @@
                 </div>
               </form>
               <p class="text-center">
-                Not a member? <a data-toggle="tab" href="/signup">Sign Up</a>
+                Not a member? <a data-toggle="tab" class="text-decoration-none text-success" href="/shop_product/signin">Sign Up</a>
               </p>
             </div>
           </div>

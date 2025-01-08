@@ -1,6 +1,5 @@
 <?php
 
-namespace Src\Config;
 class Database
 {
     private static $servername = "localhost";

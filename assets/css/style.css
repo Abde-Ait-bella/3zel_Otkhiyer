@@ -9,14 +9,38 @@ body{
 
 .containerPanier{
     min-height: 8rem;
-    width: 30%;
-    position: absolute;
+    max-height: 60%;
+    width: 70%;
+    position: fixed;
     background: rgb(151, 151, 151);
-    top: 4.5rem;
-    right: .5rem;
+    top: 50%;
+    left: 50%;
     overflow: auto;
     overflow-x: hidden;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    border-radius: 5px;
+    padding: 2rem;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+  ::-webkit-scrollbar-track-piece {
+    border: none;
+  }
 
 .form-control {
     height: 38px;
@@ -58,4 +82,19 @@ body{
     background-image: url("../images/logo1.png");
     background-repeat: no-repeat;
     background-size:cover;
+}
+
+.addProduct_popup{
+    position: fixed;
+    /* width: 40%; */
+    /* height: 70%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(251, 251, 251);
+    z-index:  110;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 2px 5px rgb(92, 92, 92);
 }
