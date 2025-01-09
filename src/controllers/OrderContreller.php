@@ -8,7 +8,7 @@ class OrderContreller
     public function index(){
         $order = new Order();
         $order->getAll();
-
+        
         require __DIR__."/../view/admin/Orders.php";
     }
 

@@ -2,12 +2,20 @@
 
 include_once __DIR__ . "/../config/Database.php";
 
+
 class Order
 {
+    
+    public function getAll(){
+        $conn = Database::getConnection();
+        $sql = "SELECT * FROM orders AS O NATURAL JOIN product_order NATURAL JOIN product";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
     public function Create($dataOrder, $dataOrderProduct)
     {
         try {
-
             $conn = Database::getConnection();
             $conn->beginTransaction();
 
