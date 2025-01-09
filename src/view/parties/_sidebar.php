@@ -18,7 +18,7 @@
                         data-bs-parent="#sidenavAccordion">
                         <nav class="nav sb-sidenav-menu-nested">
                             <a class="nav-link" href="/shop_product/products">Produits</a>
-                            <!-- <a class="nav-link" href="layout-sidenav-light.php">Light Sidenav</a> -->
+                            <a class="nav-link" href="/shop_product/orders">Commandes</a>
                         </nav>
                     </div>
                     <a class="collapsed nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
