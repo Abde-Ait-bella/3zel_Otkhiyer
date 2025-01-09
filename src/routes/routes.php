@@ -2,6 +2,7 @@
 
 require_once __DIR__."/../controllers/ProductController.php";
 require_once __DIR__."/../controllers/UserController.php";
+require_once __DIR__."/../controllers/OrderContreller.php";
 
 class Routes
 {
@@ -11,6 +12,7 @@ class Routes
             "/signin" => [UserController::class, "login"],
             "/addProduct" => [ProductController::class, "Create"],
             "/updateProduct" => [ProductController::class, "Update"],
+            "/addOrder" => [OrderContreller::class, "Create"],
         ],
         "GET" => [
             "/" => [ProductController::class, "index"],
@@ -23,6 +25,8 @@ class Routes
             "/delete" => [ProductController::class, "Destroy"],
             "/products" => [ProductController::class, "productAdmin"],
             "/addToCart" => [ProductController::class, "Add_to_cart"],
+            "/deleteIntoCart" => [ProductController::class, "Delete_into_cart"],
+            "/orders" => [OrderContreller::class, "index"],
         ]
     ];
     

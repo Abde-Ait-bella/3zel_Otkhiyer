@@ -27,7 +27,7 @@
       <button onclick="togglePanier()" class="btn btn-outline-dark">
         <i class="bi-cart-fill me-1"></i>
         Cart
-        <span class="bg-dark rounded-pill text-white badge ms-1"><?= count($_SESSION['all_id']) ?></span>
+        <span class="bg-dark rounded-pill text-white badge ms-1"><?= isset($_SESSION['all_id']) ?  count($_SESSION['all_id']) : 0 ?></span>
       </button>
     </div>
 

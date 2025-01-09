@@ -141,6 +141,20 @@ class ProductController
         }
     }
 
+    public function Delete_into_cart(){
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            session_start();
+            $key = array_search( $id, $_SESSION['all_id']);
+
+            unset($_SESSION['all_id'][$key]);
+            $_SESSION['openPopup'] = true; 
+
+            header("Location: /shop_product/");
+            exit();
+        }
+    }
+
     public function Destroy(){
         if ($_GET['id']) {
             $id = $_GET['id'];
